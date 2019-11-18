@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.pink,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Phatthalung'),
     );
   }
 }
