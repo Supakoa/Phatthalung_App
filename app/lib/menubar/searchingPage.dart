@@ -1,16 +1,36 @@
 import 'package:flutter/material.dart';
 
 
-class NewAppBar extends StatelessWidget implements PreferredSizeWidget {
-  NewAppBar({Key key}) : super(key: key);
+class NewAppBar extends StatefulWidget implements PreferredSizeWidget {
+  Text txt;
 
+  NewAppBar({Key key}): super(key: key);
+
+  @override
+  _NewAppBarState createState() => _NewAppBarState(txt);
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => new Size.fromHeight(AppBar().preferredSize.height);
+
+  void setTxt(Text txt) {
+    this.txt = txt;
+  }
+
+}
+
+class _NewAppBarState extends State<NewAppBar> {
   Icon cusIcon = Icon(Icons.search);
-  Widget customSearch = Text('Home');
+  Text txt;
+
+  _NewAppBarState(Text txt) {
+    this.txt = txt;
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        title: customSearch,
+        title: txt,
         // backgroundColor: Color.fromRGBO(99, 150, 168, 0),
         leading: IconButton(
           onPressed: () {},
@@ -36,6 +56,6 @@ class NewAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   // TODO: implement preferredSize
   Size get preferredSize => new Size.fromHeight(AppBar().preferredSize.height);
-}
+} 
 
 
