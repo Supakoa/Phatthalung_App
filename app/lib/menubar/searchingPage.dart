@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/menubar/bottombar.dart';
 
 class SearchingPage extends StatefulWidget {
   @override
@@ -54,6 +55,7 @@ class _SearchingPageState extends State<SearchingPage> {
           ),
         ],
       ),
+      bottomNav  igationBar: BottomBar(),
     );
   }
 }

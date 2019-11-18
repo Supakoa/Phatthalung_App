@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:app/searchingPage.dart';
+import 'package:app/menubar/searchingPage.dart';
+
 
 void main() => runApp(Main());
 
