@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 
-class SearchingPage extends StatefulWidget {
+class SearchingPage extends StatefulWidget implements PreferredSizeWidget {
+
+  final AppBar appBar;
+
+  const SearchingPage({Key key, this.appBar}) : super(key: key);
+
   @override
-  _SearchingPageState createState() => _SearchingPageState();
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return null;
+  }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
+  
 }
 
 class _SearchingPageState extends State<SearchingPage> {
@@ -31,8 +44,7 @@ class _SearchingPageState extends State<SearchingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return AppBar(
         title: customSearch,
         // backgroundColor: Color.fromRGBO(99, 150, 168, 0),
         leading: IconButton(
@@ -53,9 +65,45 @@ class _SearchingPageState extends State<SearchingPage> {
             icon: Icon(Icons.more_vert),
           ),
         ],
-      ),
     );
   }
+}
+
+class NewAppBar extends StatelessWidget implements PreferredSizeWidget {
+  NewAppBar({Key key}) : super(key: key);
+
+  Icon cusIcon = Icon(Icons.search);
+  Widget customSearch = Text('Home');
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+        title: customSearch,
+        // backgroundColor: Color.fromRGBO(99, 150, 168, 0),
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.menu),
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              // setState(() {
+              //   // onSearch();
+              // });
+            },
+            icon: cusIcon,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.more_vert),
+          ),
+        ],
+    );
+  }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => new Size.fromHeight(AppBar().preferredSize.height);
 }
 
 

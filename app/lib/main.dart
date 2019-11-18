@@ -14,7 +14,11 @@ class Main extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SearchingPage(),
+      home: Scaffold(
+        appBar: NewAppBar(),
+        // body: Center(),
+        // bottomNavigationBar: BottomBar(),
+      ),
     );
   }
 }
