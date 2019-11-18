@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/menubar/bottombar.dart';
 
 class SearchingPage extends StatefulWidget implements PreferredSizeWidget {
 
