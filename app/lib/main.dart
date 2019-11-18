@@ -17,7 +17,7 @@ class Main extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: NewAppBar(),
-        // body: Center(),
+        body: Center(),
         bottomNavigationBar: BottomBar(),
       ),
     );
