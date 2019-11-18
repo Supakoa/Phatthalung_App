@@ -6,12 +6,13 @@ void main() => runApp(Main());
 
 class Main extends StatelessWidget {
   const Main({Key key}) : super(key: key);
-  
 
   @override
   Widget build(BuildContext context) {
 
     Widget customSearch = Text('Home');
+    NewAppBar newAppBar = NewAppBar();
+    newAppBar.setTxt(customSearch);
 
     return MaterialApp(
       title: 'Appbar',
@@ -20,9 +21,7 @@ class Main extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: NewAppBar(
-          
-        ),
+        appBar: newAppBar,
         // body: Center(),
         bottomNavigationBar: BottomBar(),
       ),
