@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app/menubar/searchingPage.dart';
-
+import 'package:app/menubar/bottombar.dart';
 
 void main() => runApp(Main());
 
@@ -24,7 +24,7 @@ class Main extends StatelessWidget {
           
         ),
         // body: Center(),
-        // bottomNavigationBar: BottomBar(),
+        bottomNavigationBar: BottomBar(),
       ),
     );
   }

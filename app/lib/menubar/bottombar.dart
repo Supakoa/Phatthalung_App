@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
-class BottomBar extends StatefulWidget {
+class BottomBar extends StatefulWidget implements PreferredSizeWidget {
+  BottomBar({Key key}) : super(key: key);
+
+  double get height => null;
+
   @override
-  _BottomBarStat createState() => _BottomBarStat();
-}
-
-class _BottomBarStat extends State<BottomBar> {
+  _BottomBarState createState() => _BottomBarState();
 
 
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => new Size.fromHeight(height);}
 
-int _selectedIndex = 0;
-static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-static const List<Widget> _widgetOptions = <Widget>[
+class _BottomBarState extends State<BottomBar> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
   Text(
     'Index 0: Home',
     style: optionStyle,
@@ -32,17 +37,10 @@ void _onItemTapped(int index) {
   });
 }
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: (
-        Center(
-          child: _widgetOptions.elementAt(_selectedIndex) ,
-        )
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
+    return BottomNavigationBar(
+       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           title: Text('Home'),
@@ -59,7 +57,7 @@ void _onItemTapped(int index) {
       currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: _onItemTapped,
-    ),
     );
   }
 }
+
