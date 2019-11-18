@@ -11,7 +11,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // setting  title to appBar
-    Widget customSearch = Text('Home');
+    Widget customSearch = Text('Patalung Awesome');
     NewAppBar newAppBar = NewAppBar();
     newAppBar.setTxt(customSearch);
 
