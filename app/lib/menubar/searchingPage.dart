@@ -13,6 +13,7 @@ class NewAppBar extends StatefulWidget implements PreferredSizeWidget {
   // TODO: implement preferredSize
   Size get preferredSize => new Size.fromHeight(AppBar().preferredSize.height);
 
+  // throw from main.dart txt to _NewAppBarState class
   void setTxt(Text txt) {
     this.txt = txt;
   }
@@ -23,6 +24,7 @@ class _NewAppBarState extends State<NewAppBar> {
   Icon cusIcon = Icon(Icons.search);
   Text txt;
 
+  // setting txt
   _NewAppBarState(Text txt) {
     this.txt = txt;
   }

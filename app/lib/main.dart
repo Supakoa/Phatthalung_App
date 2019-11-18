@@ -10,6 +10,7 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    // setting  title to appBar
     Widget customSearch = Text('Home');
     NewAppBar newAppBar = NewAppBar();
     newAppBar.setTxt(customSearch);
