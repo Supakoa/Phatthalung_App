@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/menubar/searchingPage.dart';
 import 'package:app/menubar/bottombar.dart';
+import 'package:app/content/contentApp.dart';
 
 void main() => runApp(Main());
 
@@ -19,11 +20,22 @@ class Main extends StatelessWidget {
       title: 'Appbar',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: Scaffold(
         appBar: newAppBar,
-        // body: Center(),
+        body: Container(
+            decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromARGB(255, 73,172,201),
+                Color.fromARGB(255, 61,137,147),
+              ]
+            )
+          ),
+        ),
         bottomNavigationBar: BottomBar(),
       ),
     );

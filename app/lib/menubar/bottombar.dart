@@ -62,7 +62,7 @@ class _BottomBarState extends State<BottomBar> {
             color: Colors.lightBlue,
             size: 25.0,
           ),
-          title: Text('โปรไฟล์')
+          title: Text('โปรไฟล์'),
         ),
       ],
       currentIndex: _selectedIndex,
