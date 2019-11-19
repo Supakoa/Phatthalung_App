@@ -34,10 +34,6 @@ class _NewAppBarState extends State<NewAppBar> {
     return AppBar(
         title: txt,
         // backgroundColor: Color.fromRGBO(99, 150, 168, 0),
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.menu),
-        ),
         actions: <Widget>[
           IconButton(
             onPressed: () {
@@ -46,10 +42,6 @@ class _NewAppBarState extends State<NewAppBar> {
               // });
             },
             icon: cusIcon,
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
           ),
         ],
     );
