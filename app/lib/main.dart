@@ -1,7 +1,8 @@
+import 'package:app/content/MyHome.dart';
 import 'package:flutter/material.dart';
 import 'package:app/menubar/searchingPage.dart';
 import 'package:app/menubar/bottombar.dart';
-import 'package:app/content/contentApp.dart';
+import 'package:app/content/MyHome.dart';
 
 void main() => runApp(Main());
 
@@ -20,17 +21,18 @@ class Main extends StatelessWidget {
       title: 'Appbar',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: newAppBar,
         body: Container(
+            child: Home(),
             decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromARGB(255, 73,172,201),
+                Color.fromARGB(255, 93,181,207),
                 Color.fromARGB(255, 61,137,147),
               ]
             )

@@ -16,6 +16,11 @@ class BottomBar extends StatefulWidget implements PreferredSizeWidget {
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 2;
   
+  void _setStatePages(int index){
+      setState(() {
+      });
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
