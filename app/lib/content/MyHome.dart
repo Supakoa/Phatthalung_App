@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:app/menubar/searchingPage.dart';
 
- class Home extends StatefulWidget {
-   Home({Key key}) : super(key: key);
+ class MyHome extends StatefulWidget {
+   MyHome({Key key}) : super(key: key);
  
    @override
-   _HomeState createState() => _HomeState();
+   _MyHomeState createState() => _MyHomeState();
  }
  
- class _HomeState extends State<Home> {
+ class _MyHomeState extends State<MyHome> {
    @override
    Widget build(BuildContext context) {
-     return Center(
-        child: Text('Home'),
+     return Container(
+       padding: EdgeInsets.all(20),
+       child: Center(
+         child: Text('Home'),
+       ),
      );
    }
  }
