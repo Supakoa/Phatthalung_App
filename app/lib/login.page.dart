@@ -25,7 +25,7 @@ class _MyLoginState extends State<MyLogin> {
                   margin: EdgeInsets.all(32),
                   padding: EdgeInsets.all(24),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[Row(
                       mainAxisSize: MainAxisSize.max,
