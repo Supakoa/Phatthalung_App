@@ -23,7 +23,9 @@ class _NewAppBarState extends State<NewAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
           backgroundColor: Color.fromARGB(255, 70, 121, 136),
-          title: Text('Phatthalung') ,
+          title: Center(
+            child: Text('Phatthalung') 
+          ),
           actions: <Widget>[
           IconButton(
             onPressed: () {
