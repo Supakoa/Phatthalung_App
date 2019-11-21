@@ -1,6 +1,8 @@
+import 'package:app/content/MyHome.dart';
 import 'package:flutter/material.dart';
 import 'package:app/menubar/searchingPage.dart';
 import 'package:app/menubar/bottombar.dart';
+import 'package:app/content/MyHome.dart';
 
 void main() => runApp(Main());
 
@@ -11,7 +13,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // setting  title to appBar
-    Widget customSearch = Text('Home');
+    Widget customSearch = Text('Patalung Awesome');
     NewAppBar newAppBar = NewAppBar();
     newAppBar.setTxt(customSearch);
 
@@ -23,7 +25,19 @@ class Main extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: newAppBar,
-        // body: Center(),
+        body: Container(
+            child: Home(),
+            decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromARGB(255, 93,181,207),
+                Color.fromARGB(255, 61,137,147),
+              ]
+            )
+          ),
+        ),
         bottomNavigationBar: BottomBar(),
       ),
     );
