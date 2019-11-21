@@ -37,13 +37,14 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NewAppBar(),
-      body: _childred[_selectedIndex] ,
+      body: _childred[_selectedIndex],
+            backgroundColor: Color.fromARGB(255, 70, 121, 136),
             bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.explore,
-                  color: Colors.lightBlue,
+                  color: Colors.white,
                   size: 25.0,),
                 title: Text('แผนที่'),
               ),
@@ -51,7 +52,7 @@ class _BottomBarState extends State<BottomBar> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  color: Colors.lightBlue,
+                  color: Colors.white,
                   size: 30.0,
                   ),
                 title: Text('หน้าแรก'),
@@ -60,7 +61,7 @@ class _BottomBarState extends State<BottomBar> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.local_offer,
-                  color: Colors.lightBlue,
+                  color: Colors.white,
                   size: 25.0,
                 ),
                 title: Text('โปรโมชั่น'),
@@ -69,7 +70,7 @@ class _BottomBarState extends State<BottomBar> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.lightBlue,
+                  color: Colors.white,
                   size: 25.0,
                 ),
                 title: Text('โปรไฟล์'),
@@ -77,7 +78,7 @@ class _BottomBarState extends State<BottomBar> {
               // item 3
             ],
             currentIndex: _selectedIndex, //intem 1
-            selectedItemColor: Colors.blue,
+            selectedItemColor: Color.fromARGB(255, 255,255,255),
             onTap: _onItemTapped,
           ),
           );
