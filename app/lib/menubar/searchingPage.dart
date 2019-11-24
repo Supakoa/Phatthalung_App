@@ -29,9 +29,12 @@ class _NewAppBarState extends State<NewAppBar> {
           actions: <Widget>[
           IconButton(
             onPressed: () {
-              // setState(() {
-              //   // onSearch();
-              // });
+              setState(() {
+                MaterialPageRoute(
+                  builder: (context) => _textSearch()
+                );
+                // _textSearch();
+              });
             },
             icon: cusIcon,
           ),
@@ -43,5 +46,13 @@ class _NewAppBarState extends State<NewAppBar> {
   // TODO: implement preferredSize
   Size get preferredSize => new Size.fromHeight(AppBar().preferredSize.height);
 } 
+
+_textSearch(){
+  return TextFormField(
+    decoration: InputDecoration(
+      icon: Icon(Icons.search)
+    ),
+  );
+}
 
 
