@@ -95,8 +95,19 @@ import 'package:carousel_slider/carousel_slider.dart';
               padding: EdgeInsets.all(5.0),
               alignment: Alignment.topCenter,
                  child: Text(" แนะนำสถานที่เที่ยวจังหวัดพัทลุง ",style: TextStyle(fontSize: 20)),height:40),
-              Container(
-                color: Colors.red, height:150),
+              Column(
+                 children: <Widget>[Text("ท่าเรือ"),
+                 Container(height: 120,child:ListView(
+                   scrollDirection: Axis.horizontal,
+                   children: <Widget>[
+                   ListView(),
+                   ListView()
+                   ],
+                 ),
+                 )
+                 
+                 ],
+                 ),
               Container(
                 color: Colors.green, height:150),
               Container(
@@ -107,10 +118,14 @@ import 'package:carousel_slider/carousel_slider.dart';
           ],
           
         ),
-     );
-     
-   }
-   
+     );   
+   } 
+
+ }
+ Card_buildCardListView(){
+   return Card(
+     child: Image.network('https://clib.psu.ac.th/southerninfo/storages/pictures/Zebra_Dove/Wat_Khuha_Sawan/DSC_1079.JPG'),
+   );
  }
  
  
