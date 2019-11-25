@@ -13,6 +13,7 @@ class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text("Travel to Phathalung",
               style: TextStyle(color: Colors.white)),
@@ -26,20 +27,28 @@ class _MyLoginState extends State<MyLogin> {
           ])),
           padding: EdgeInsets.all(30),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            // mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(bottom:70),
-                child: Text('เข้าสู่ระบบ', style: TextStyle(fontSize: 30),textAlign: TextAlign.center,),
+                height: 150, 
+                width: 400,
+                color: Colors.amberAccent,               
+                child: Text('เข้าสู่ระบบ', style: TextStyle(fontSize: 30),textAlign: TextAlign.center,)
               ),
               new TextFormField(
-                decoration: InputDecoration(icon: Icon(Icons.person)),
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'Username',
+                ),
               ),
               new TextFormField(
-                decoration: InputDecoration(icon: Icon(Icons.vpn_key)),
+                decoration: InputDecoration(
+                  icon: Icon(Icons.vpn_key),
+                  hintText: 'Password',
+                  ),
               ),
               Container(
-                  margin: EdgeInsets.only(bottom: 50,top: 20),
+                  height: 150,
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -62,13 +71,13 @@ class _MyLoginState extends State<MyLogin> {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Text('------------------------',style: TextStyle(fontSize: 15),),
-                        Text(' หรือ ',style: TextStyle(fontSize: 15),),
+                        Text(' หรือ ',style: TextStyle(fontSize: 25),),
                         Text('------------------------',style: TextStyle(fontSize: 15),),
                       ],
                     ),
                   ),
               Container(
-                  margin: EdgeInsets.only(top: 100),
+                  padding: EdgeInsets.only(top: 50),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -95,6 +104,7 @@ class register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title:
             Text("ลงทะเบียน", style: TextStyle(color: Colors.white)),
@@ -110,7 +120,35 @@ class register extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-              
+            Container(
+             height: 200,
+              child: Text('สมัครสมาชิค',style: TextStyle(fontSize: 25,color: Colors.white),textAlign: TextAlign.center,),
+            ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'ชื่อผู้ใช',
+                ),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.vpn_key),
+                  hintText: 'รหัสผ่าน',
+                  ),
+                  scrollPadding: EdgeInsets.all(10),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'อีเมล',
+                ),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.vpn_key),
+                  hintText: 'เบอร์โทรศัพท์',
+                  ),
+              ),
           ],
         )
       ),
