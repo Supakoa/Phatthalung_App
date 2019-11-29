@@ -2,44 +2,39 @@ import 'package:flutter/material.dart';
 
 
 class NewAppBar extends StatefulWidget implements PreferredSizeWidget {
-  Text txt;
 
   NewAppBar({Key key}): super(key: key);
 
   @override
-  _NewAppBarState createState() => _NewAppBarState(txt);
+  _NewAppBarState createState() => _NewAppBarState();
+
 
   @override
   // TODO: implement preferredSize
   Size get preferredSize => new Size.fromHeight(AppBar().preferredSize.height);
 
-  // throw from main.dart txt to _NewAppBarState class
-  void setTxt(Text txt) {
-    this.txt = txt;
-  }
 
 }
 
 class _NewAppBarState extends State<NewAppBar> {
   Icon cusIcon = Icon(Icons.search);
-  Text txt;
-
-  // setting txt
-  _NewAppBarState(Text txt) {
-    this.txt = txt;
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        title: txt,
-        // backgroundColor: Color.fromRGBO(99, 150, 168, 0),
-        actions: <Widget>[
+          backgroundColor: Color.fromARGB(255, 70, 121, 136),
+          title: Center(
+            child: Text('Phatthalung') 
+          ),
+          actions: <Widget>[
           IconButton(
             onPressed: () {
-              // setState(() {
-              //   // onSearch();
-              // });
+              setState(() {
+                MaterialPageRoute(
+                  builder: (context) => _textSearch()
+                );
+                // _textSearch();
+              });
             },
             icon: cusIcon,
           ),
@@ -51,5 +46,13 @@ class _NewAppBarState extends State<NewAppBar> {
   // TODO: implement preferredSize
   Size get preferredSize => new Size.fromHeight(AppBar().preferredSize.height);
 } 
+
+_textSearch(){
+  return TextFormField(
+    decoration: InputDecoration(
+      icon: Icon(Icons.search)
+    ),
+  );
+}
 
 

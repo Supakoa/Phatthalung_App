@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:app/content/MyHome.dart';
+import 'package:app/content/MyMap.dart';
+import 'package:app/content/MyProfile.dart';
+import 'package:app/content/MyPromotion.dart';
+import 'package:app/menubar/searchingPage.dart';
 class BottomBar extends StatefulWidget implements PreferredSizeWidget {
   BottomBar({Key key}) : super(key: key);
 
@@ -14,12 +18,14 @@ class BottomBar extends StatefulWidget implements PreferredSizeWidget {
   Size get preferredSize => new Size.fromHeight(height);}
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
   
-  void _setStatePages(int index){
-      setState(() {
-      });
-  }
+  final List<Widget> _childred =[
+    MyMap(),
+    MyHome(), 
+    MyPromotion(), 
+    MyProfile()
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -29,51 +35,54 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-         BottomNavigationBarItem(
-          icon: Icon(
-            Icons.search,
-            color: Colors.lightBlue,
-            size: 25.0,),
-          title: Text('ค้นหา'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.explore,
-            color: Colors.lightBlue,
-            size: 25.0,),
-          title: Text('แผนที่'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.home,
-            color: Colors.lightBlue,
-            size: 30.0,
-            ),
-          title: Text('หน้าแรก'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.local_offer,
-            color: Colors.lightBlue,
-            size: 25.0,
+    return Scaffold(
+      appBar: NewAppBar(),
+      body: _childred[_selectedIndex],
+            backgroundColor: Color.fromARGB(255, 70, 121, 136),
+            bottomNavigationBar: BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.explore,
+                  color: Colors.white,
+                  size: 25.0,),
+                title: Text('แผนที่'),
+              ),
+              // item 0
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                  size: 30.0,
+                  ),
+                title: Text('หน้าแรก'),
+              ),
+              // item 1
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.local_offer,
+                  color: Colors.white,
+                  size: 25.0,
+                ),
+                title: Text('โปรโมชั่น'),
+              ),
+              // item 2
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 25.0,
+                ),
+                title: Text('โปรไฟล์'),
+              ),
+              // item 3
+            ],
+            currentIndex: _selectedIndex, //intem 1
+            selectedItemColor: Color.fromARGB(255, 255,255,255),
+            onTap: _onItemTapped,
           ),
-          title: Text('โปรโมชั่น'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.person,
-            color: Colors.lightBlue,
-            size: 25.0,
-          ),
-          title: Text('โปรไฟล์'),
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.blue,
-      onTap: _onItemTapped,
-    );
-  }
-}
+          );
+        }
+      }
+      
 

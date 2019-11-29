@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Map extends StatefulWidget {
-  Map({Key key}) : super(key: key);
+class MyMap extends StatefulWidget {
+  MyMap({Key key}) : super(key: key);
 
   @override
-  _MapState createState() => _MapState();
+  _MyMapState createState() => _MyMapState();
 }
 
-class _MapState extends State<Map> {
+class _MyMapState extends State<MyMap> {
   @override
   Widget build(BuildContext context) {
     return Container(
