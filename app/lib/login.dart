@@ -38,13 +38,13 @@ class _MyLoginState extends State<MyLogin> {
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.person),
-                  hintText: 'Username',
+                  hintText: 'E-mail',
                 ),
               ),
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.vpn_key),
-                  hintText: 'Password',
+                  hintText: 'รหัสผ่าน',
                   ),
               ),
               Container(
@@ -122,12 +122,12 @@ class register extends StatelessWidget {
           children: <Widget>[
             Container(
              height: 200,
-              child: Text('สมัครสมาชิค',style: TextStyle(fontSize: 25,color: Colors.white),textAlign: TextAlign.center,),
+              child: Text('สมัครสมาชิก',style: TextStyle(fontSize: 25,color: Colors.white),textAlign: TextAlign.center,),
             ),
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.person),
-                  hintText: 'ชื่อผู้ใช',
+                  hintText: 'ชื่อผู้ใช้',
                 ),
               ),
               new TextFormField(
@@ -140,7 +140,7 @@ class register extends StatelessWidget {
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.person),
-                  hintText: 'อีเมล',
+                  hintText: 'E-mail',
                 ),
               ),
               new TextFormField(
