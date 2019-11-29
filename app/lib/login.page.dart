@@ -5,8 +5,12 @@ class name extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return buildMaterialApp();
+  }
+
+  MaterialApp buildMaterialApp() {
     return MaterialApp(
-      color: Colors.amber,
-    );
+    color: Colors.amber,
+  );
   }
 }
