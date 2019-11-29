@@ -15,7 +15,7 @@ class Main extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: Colors.lightBlue[800],
           accentColor: Colors.cyan[600],
-          fontFamily: 'Montserrat',
+          fontFamily: 'Kanit',
       ),
       home: MyLogin(),
 
