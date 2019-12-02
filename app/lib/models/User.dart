@@ -1,17 +1,55 @@
-
-import 'package:json_annotation/json_annotation.dart';
-
-part 'User.g.dart';
-
-@JsonSerializable()
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class User {
-  String email, password, firstName, lastName, gender, timeStamp;
-  int age;
+  final String userID;
+  final String firstName;
+  final String lastName;
+  final String age;
+  final String gender; 
+  final String province; 
+  final String email;
+  final String password;
 
-  User(this.email, this.password, this.firstName, this.lastName, this.age, this.gender, this.timeStamp);
+  User({
+    this.userID,
+    this.firstName,
+    this.lastName,
+    this.age,
+    this.gender,  
+    this.province,  
+    this.email,
+    this.password,
+  });
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  Map<String, Object> toJson() {
+    return {
+      'userID': userID,
+      'firstName': firstName,
+      'lastName': lastName,
+      'age':age,
+      'gender':gender,
+      'province':province,
+      'email': email == null ? '' : email,
+      'password':password,
 
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+    };
+  }
+
+  factory User.fromJson(Map<String, Object> doc) {
+    User user = new User(
+      userID: doc['userID'],
+      firstName: doc['firstName'],
+      lastName: doc['lastName'],
+      age:doc['age'],
+      gender:doc['gender'],
+      province:doc['province'],
+      email: doc['email'],
+      password:doc['password'],
+    );
+    return user;
+  }
+
+  factory User.fromDocument(DocumentSnapshot doc) {
+    return User.fromJson(doc.data);
+  }
 }

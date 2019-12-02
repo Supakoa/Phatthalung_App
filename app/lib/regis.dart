@@ -1,6 +1,15 @@
+import 'dart:convert';
+
+import 'package:app/models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+final databaseReference = Firestore.instance;
+
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 String _namef,_namel;
 String _pass,_gen;
@@ -50,22 +59,23 @@ class register extends StatelessWidget {
                   icon: Icon(Icons.short_text),
                   hintText: 'นามสกุล',
                 ),
-                onChanged: (value) => _namef = value.trim(),
+                onChanged: (value) => _namel = value.trim(),
               ),
+             
               new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'อีเมล',
+                ),
+                onChanged: (value) => _email = value.trim(),
+              ),
+               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.vpn_key),
                   hintText: 'รหัสผ่าน',
                 ),
                 onChanged: (value) => _pass = value.trim(),
                 scrollPadding: EdgeInsets.all(10),
-              ),
-              new TextFormField(
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'E-mail',
-                ),
-                onChanged: (value) => _email = value.trim(),
               ),
               new TextFormField(
                 decoration: InputDecoration(
@@ -131,11 +141,11 @@ class DropdownExample extends StatefulWidget {
           items: [
             DropdownMenuItem<String>(
               child: Text('เพศชาย'),
-              value: 'men',
+              value: 'Male',
             ),
             DropdownMenuItem<String>(
               child: Text('เพศหญิง'),
-              value: 'women',
+              value: 'Female',
             ),
             DropdownMenuItem<String>(
               child: Text('เพศทางเลือก'),
@@ -145,6 +155,7 @@ class DropdownExample extends StatefulWidget {
           onChanged: (String value) {
             setState(() {
               _value = value;
+              _gen = value;
             });
           },
           hint: Text('เพศ'),
@@ -163,4 +174,17 @@ void sign_up(){
   print(_age);
   print(_email);
   print(date);
+  
+  _auth.createUserWithEmailAndPassword(email: _email,password: _pass).then((user){
+    print("จัดไปวัยรุ่น ${user.user.uid}");
+    var a = user.user.uid;
+    User new_user = new User(firstName: _namef,email: _email,userID: a,age: _age,gender: _gen,lastName: _namel,password: _pass,province: "กรุงเทพมหานคร");
+  
+  databaseReference.collection("users").document(user.user.uid).setData(new_user.toJson()).then((onValue){
+    print("Gooddddd");
+    var firebaseUser = FirebaseAuth.instance.signInWithEmailAndPassword(email: _email,password: _pass).then((onValue){
+      //เข้าไปปปปปปปป
+    });
+  });
+  });
 }
