@@ -106,7 +106,7 @@ class _MyLoginState extends State<MyLogin> {
                     'เข้าสู่ระบบ',
                     style: TextStyle(fontSize: 20),
                   ),
-                  color: Color.fromARGB(255, 92, 136, 150),
+                  color: Color.fromARGB(255,55,144,186),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (_) => AlertBox()));
                     // Navigator.push(
@@ -146,17 +146,17 @@ class _MyLoginState extends State<MyLogin> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'ลงทะเบียน  ',
-                          style: TextStyle(fontSize: 15),
+                          'ยังไม่มีบัญชีผู้ใช้ใช่ไหม?  ',
+                          style: TextStyle(fontSize: 20),
                         ),
                         FlatButton(
                           child: Text(
-                            'สมัครสมาชิค',
+                            'สมัครสมาชิก',
                             style: TextStyle(
                                 color: Colors.blue,
                                 fontSize: 20,
                                 decoration: TextDecoration.underline,
-                                fontWeight: FontWeight.bold),
+                                ),
                           ),
                           onPressed: () {
                             
