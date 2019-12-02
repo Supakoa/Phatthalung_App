@@ -25,8 +25,8 @@ class _MyLoginState extends State<MyLogin> {
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 54, 145, 136),
-            Color.fromARGB(255, 70, 121, 136)
+            Color.fromARGB(255, 21, 89, 108),
+            Color.fromARGB(255, 21, 89, 108),
           ])),
           padding: EdgeInsets.only(top: 50, left: 20, right: 20),
           child: Column(
@@ -69,17 +69,16 @@ class _MyLoginState extends State<MyLogin> {
                 child: Container(
                   color: Colors.white,
                   child: new TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        border: InputBorder.none,
-                        hintText: 'รหัสผ่าน',
-                        hintStyle: TextStyle(color: Colors.grey),
-                        prefixIcon: Icon(
-                          Icons.vpn_key,
-                          color: Colors.grey,
-                        ))
-                  ),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          hintText: 'รหัสผ่าน',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          prefixIcon: Icon(
+                            Icons.vpn_key,
+                            color: Colors.grey,
+                          ))),
                 ),
               ),
               Row(
