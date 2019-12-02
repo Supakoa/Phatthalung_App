@@ -41,19 +41,45 @@ class _MyLoginState extends State<MyLogin> {
                     style: TextStyle(fontSize: 30),
                     textAlign: TextAlign.center,
                   )),
+              Spacer(),
               SizedBox(
                 height: 20.0,
               ),
-              new TextFormField(
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'E-mail',
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: Container(
+                  color: Colors.white,
+                  child: new TextFormField(
+                    autofocus: false,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'อีเมล',
+                      hintStyle: TextStyle(color: Colors.grey),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Colors.grey,
+                      ),
+                      fillColor: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-              new TextFormField(
-                decoration: InputDecoration(
-                  icon: Icon(Icons.vpn_key),
-                  hintText: 'รหัสผ่าน',
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: Container(
+                  color: Colors.white,
+                  child: new TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        hintText: 'รหัสผ่าน',
+                        hintStyle: TextStyle(color: Colors.grey),
+                        prefixIcon: Icon(
+                          Icons.vpn_key,
+                          color: Colors.grey,
+                        ))
+                  ),
                 ),
               ),
               Row(
@@ -72,52 +98,46 @@ class _MyLoginState extends State<MyLogin> {
                 ],
               ),
               SizedBox(
+                height: 50,
                 width: double.infinity,
                 child: RaisedButton(
-                    child: Text(
-                      'เข้าสู่ระบบ',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    color: Color.fromARGB(255, 92,136,150),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BottomBar(),
-                        ),
-                      );
-                    },
+                  child: Text(
+                    'เข้าสู่ระบบ',
+                    style: TextStyle(fontSize: 20),
                   ),
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      color: Colors.white,
-                      height: 1,
-                      width: 135,
-                    ),
-                    Text(
-                      ' หรือ ',
-                      style: TextStyle(fontSize: 25),
-                    ),
-                    Container(
-                      color: Colors.white,
-                      height: 1,
-                      width: 135,
-                    ),
-                  ],
+                  color: Color.fromARGB(255, 92, 136, 150),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BottomBar(),
+                      ),
+                    );
+                  },
                 ),
-              // Container(
-              //     height: 150,
-              //     child: Column(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: <Widget>[])),
-              // Center(
-              //   child: 
-              // ),
+              ),
+              Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    color: Colors.white,
+                    height: 1,
+                    width: 135,
+                  ),
+                  Text(
+                    ' หรือ ',
+                    style: TextStyle(fontSize: 25),
+                  ),
+                  Container(
+                    color: Colors.white,
+                    height: 1,
+                    width: 135,
+                  ),
+                ],
+              ),
               Container(
                   padding: EdgeInsets.only(top: 50),
                   child: Row(
@@ -130,7 +150,11 @@ class _MyLoginState extends State<MyLogin> {
                         FlatButton(
                           child: Text(
                             'สมัครสมาชิค',
-                            style: TextStyle(color: Colors.blue, fontSize: 20),
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 20,
+                                decoration: TextDecoration.underline,
+                                fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
                             Navigator.push(
@@ -141,6 +165,7 @@ class _MyLoginState extends State<MyLogin> {
                           },
                         ),
                       ])),
+              Spacer()
             ],
           ),
         ));
