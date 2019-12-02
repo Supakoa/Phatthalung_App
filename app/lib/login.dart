@@ -124,8 +124,10 @@ class _MyLoginState extends State<MyLogin> {
 }
 
 String _name;
-String _password;
-String _errorMessage;
+String _pass;
+String _email;
+String _age;
+String _tel;
 
 class register extends StatelessWidget {
   const register({Key key}) : super(key: key);
@@ -160,13 +162,14 @@ class register extends StatelessWidget {
                   icon: Icon(Icons.person),
                   hintText: 'ชื่อผู้ใช้',
                 ),
-                onSaved: (value) => _name = value.trim(),
+                onChanged: (value) => _name = value.trim(),
               ),
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.vpn_key),
                   hintText: 'รหัสผ่าน',
                 ),
+                onChanged: (value) => _pass = value.trim(),
                 scrollPadding: EdgeInsets.all(10),
               ),
               new TextFormField(
@@ -174,18 +177,21 @@ class register extends StatelessWidget {
                   icon: Icon(Icons.person),
                   hintText: 'E-mail',
                 ),
+                onChanged: (value) => _email = value.trim(),
               ),
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.vpn_key),
                   hintText: 'เบอร์โทรศัพท์',
                 ),
+                onChanged: (value) => _tel = value.trim(),
               ),
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.calendar_view_day),
                   hintText: 'อายุ',
                 ),
+                onChanged: (value) => _age = value.trim(),
               ),
               new Padding(
                   padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
@@ -210,4 +216,8 @@ class register extends StatelessWidget {
 }
 void sign_up(){
   print(_name);
+  print(_pass);
+  print(_tel);
+  print(_age);
+  print(_email);
 }
