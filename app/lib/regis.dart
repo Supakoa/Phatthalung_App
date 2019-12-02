@@ -25,14 +25,15 @@ class register extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        title: Text("ลงทะเบียน", style: TextStyle(color: Colors.white)),
-        backgroundColor: Color.fromARGB(255, 70, 121, 136),
+        title: Text("สมัครสมาชิก", style: TextStyle(color: Colors.white,fontSize: 30)),
+         centerTitle: true,
+        backgroundColor: Color(0x0ff163c46),
       ),
       body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 54, 145, 136),
-            Color.fromARGB(255, 70, 121, 136)
+            Color.fromARGB(255, 21, 89, 108),
+            Color.fromARGB(255, 21, 89, 108)
           ])),
           padding: EdgeInsets.all(30),
           child: Column(
