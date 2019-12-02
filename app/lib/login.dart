@@ -1,7 +1,9 @@
+import 'package:app/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:app/menubar/bottombar.dart';
 import 'package:app/models/User.dart';
 import 'package:intl/intl.dart';
+import 'alert.dart';
 import 'regis.dart';
 
 class MyLogin extends StatefulWidget {
@@ -107,12 +109,13 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   color: Color.fromARGB(255, 92, 136, 150),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => BottomBar(),
-                      ),
-                    );
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => AlertBox()));
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => BottomBar(),
+                    //   ),
+                    // );
                   },
                 ),
               ),
@@ -157,6 +160,7 @@ class _MyLoginState extends State<MyLogin> {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
+                            
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -171,3 +175,5 @@ class _MyLoginState extends State<MyLogin> {
         ));
   }
 }
+
+
