@@ -17,18 +17,18 @@ class _MyLoginState extends State<MyLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomPadding: false,
-        appBar: AppBar(
-          title: Text("Travel to Phathalung",
-              style: TextStyle(color: Colors.white)),
-          backgroundColor: Color.fromARGB(255, 70, 121, 136),
-        ),
+        // appBar: AppBar(
+        //   title: Text("Travel to Phathalung",
+        //       style: TextStyle(color: Colors.white)),
+        //   backgroundColor: Color.fromARGB(255, 70, 121, 136),
+        // ),
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
             Color.fromARGB(255, 54, 145, 136),
             Color.fromARGB(255, 70, 121, 136)
           ])),
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.only(top: 50, left: 20, right: 20),
           child: Column(
             // mainAxisSize: MainAxisSize.max,
             children: <Widget>[
@@ -56,47 +56,68 @@ class _MyLoginState extends State<MyLogin> {
                   hintText: 'รหัสผ่าน',
                 ),
               ),
-              Container(
-                  height: 150,
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        RaisedButton(
-                          child: Text(
-                            'เข้าสู่ระบบ',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          color: Color.fromARGB(255, 70, 121, 136),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BottomBar(),
-                              ),
-                            );
-                          },
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Chip(
+                    label: Text(
+                      'ลืมรหัสผ่าน?',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    backgroundColor: Colors.blue,
+                    elevation: 4,
+                    padding: EdgeInsets.all(4),
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: RaisedButton(
+                    child: Text(
+                      'เข้าสู่ระบบ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    color: Color.fromARGB(255, 92,136,150),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomBar(),
                         ),
-                      ])),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      );
+                    },
+                  ),
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text(
-                      '----------------',
-                      style: TextStyle(fontSize: 15),
+                    Container(
+                      color: Colors.white,
+                      height: 1,
+                      width: 135,
                     ),
                     Text(
                       ' หรือ ',
                       style: TextStyle(fontSize: 25),
                     ),
-                    Text(
-                      '-----------------',
-                      style: TextStyle(fontSize: 15),
+                    Container(
+                      color: Colors.white,
+                      height: 1,
+                      width: 135,
                     ),
                   ],
                 ),
-              ),
+              // Container(
+              //     height: 150,
+              //     child: Column(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: <Widget>[])),
+              // Center(
+              //   child: 
+              // ),
               Container(
                   padding: EdgeInsets.only(top: 50),
                   child: Row(
@@ -112,7 +133,6 @@ class _MyLoginState extends State<MyLogin> {
                             style: TextStyle(color: Colors.blue, fontSize: 20),
                           ),
                           onPressed: () {
-
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -126,4 +146,3 @@ class _MyLoginState extends State<MyLogin> {
         ));
   }
 }
-

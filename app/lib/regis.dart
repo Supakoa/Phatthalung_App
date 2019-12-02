@@ -30,7 +30,7 @@ class register extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                height: 200,
+                height: 150,
                 child: Text(
                   'สมัครสมาชิก',
                   style: TextStyle(fontSize: 25, color: Colors.white),
@@ -40,7 +40,14 @@ class register extends StatelessWidget {
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.person),
-                  hintText: 'ชื่อผู้ใช้',
+                  hintText: 'ชื่อ',
+                ),
+                onChanged: (value) => _namef = value.trim(),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.short_text),
+                  hintText: 'นามสกุล',
                 ),
                 onChanged: (value) => _namef = value.trim(),
               ),
@@ -74,6 +81,10 @@ class register extends StatelessWidget {
                 onChanged: (value) => _age = value.trim(),
               ),
               new Padding(
+                padding: EdgeInsets.all(5),
+                child: new DropdownExample(),
+              ),
+              new Padding(
                   padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
                   child: SizedBox(
                     height: 40.0,
@@ -98,8 +109,52 @@ class register extends StatelessWidget {
   }
 }
 
+class DropdownExample extends StatefulWidget {
+    @override
+    _DropdownExampleState createState() {
+      return _DropdownExampleState();
+    }
+  }
+  
+  class _DropdownExampleState extends State<DropdownExample> {
+    String _value;
+  
+    @override
+    Widget build(BuildContext context) {
+      return Align(
+        alignment: Alignment.centerRight,
+        child: DropdownButton<String>(
+          isDense: false,
+          isExpanded: true,
+          icon: Icon(Icons.arrow_drop_down),
+          items: [
+            DropdownMenuItem<String>(
+              child: Text('เพศชาย'),
+              value: 'men',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('เพศหญิง'),
+              value: 'women',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('เพศทางเลือก'),
+              value: 'LGBT',
+            ),
+          ],
+          onChanged: (String value) {
+            setState(() {
+              _value = value;
+            });
+          },
+          hint: Text('เพศ'),
+          value: _value,
+        ),
+      );
+    }
+  }
 
-User(_users);
+
+// User(_users);
 void sign_up(){
   print(_namef);
   print(_pass);
