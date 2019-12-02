@@ -55,7 +55,6 @@ class _MyLoginState extends State<MyLogin> {
                       border: InputBorder.none,
                       hintText: 'อีเมล',
                       hintStyle: TextStyle(color: Colors.grey),
-                      labelText: 'อีเมล',
                       prefixIcon: Icon(
                         Icons.person,
                         color: Colors.grey,
@@ -74,13 +73,12 @@ class _MyLoginState extends State<MyLogin> {
                     decoration: InputDecoration(
                         fillColor: Colors.white,
                         border: InputBorder.none,
-                        labelText: 'รหัสผ่าน',
                         hintText: 'รหัสผ่าน',
                         hintStyle: TextStyle(color: Colors.grey),
                         prefixIcon: Icon(
                           Icons.vpn_key,
                           color: Colors.grey,
-                        )),
+                        ))
                   ),
                 ),
               ),
