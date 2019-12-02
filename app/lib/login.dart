@@ -32,19 +32,12 @@ class _MyLoginState extends State<MyLogin> {
           child: Column(
             // mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              Container(
-                  height: 150,
-                  width: 400,
-                  color: Colors.amberAccent,
-                  child: Text(
-                    'เข้าสู่ระบบ',
-                    style: TextStyle(fontSize: 30),
-                    textAlign: TextAlign.center,
-                  )),
-              Spacer(),
-              SizedBox(
-                height: 20.0,
+              Image.asset(
+                'assets/images/logo.png',
+                width: 200,
+                height: 200,
               ),
+              SizedBox(height: 30.0),
               Padding(
                 padding: EdgeInsets.all(5),
                 child: Container(
@@ -104,7 +97,7 @@ class _MyLoginState extends State<MyLogin> {
                     'เข้าสู่ระบบ',
                     style: TextStyle(fontSize: 20),
                   ),
-                  color: Color.fromARGB(255,55,144,186),
+                  color: Color.fromARGB(255, 55, 144, 186),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -150,10 +143,10 @@ class _MyLoginState extends State<MyLogin> {
                           child: Text(
                             'สมัครสมาชิก',
                             style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 20,
-                                decoration: TextDecoration.underline,
-                                ),
+                              color: Colors.blue,
+                              fontSize: 20,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                           onPressed: () {
                             Navigator.push(
