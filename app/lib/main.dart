@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:app/menubar/bottombar.dart';
 import 'package:app/login.dart';
 
 void main() => runApp(Main());
@@ -16,6 +15,7 @@ class Main extends StatelessWidget {
           primaryColor: Colors.lightBlue[800],
           accentColor: Colors.cyan[600],
           fontFamily: 'Kanit',
+          backgroundColor: Color.fromARGB(255, 28,94,113)
       ),
       home: MyLogin(),
 

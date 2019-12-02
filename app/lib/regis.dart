@@ -39,7 +39,7 @@ class register extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                height: 200,
+                height: 150,
                 child: Text(
                   'สมัครสมาชิก',
                   style: TextStyle(fontSize: 25, color: Colors.white),
@@ -49,24 +49,32 @@ class register extends StatelessWidget {
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.person),
-                  hintText: 'ชื่อผู้ใช้',
+                  hintText: 'ชื่อ',
                 ),
                 onChanged: (value) => _namef = value.trim(),
               ),
               new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.short_text),
+                  hintText: 'นามสกุล',
+                ),
+                onChanged: (value) => _namel = value.trim(),
+              ),
+             
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'อีเมล',
+                ),
+                onChanged: (value) => _email = value.trim(),
+              ),
+               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.vpn_key),
                   hintText: 'รหัสผ่าน',
                 ),
                 onChanged: (value) => _pass = value.trim(),
                 scrollPadding: EdgeInsets.all(10),
-              ),
-              new TextFormField(
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'E-mail',
-                ),
-                onChanged: (value) => _email = value.trim(),
               ),
               new TextFormField(
                 decoration: InputDecoration(
@@ -81,6 +89,10 @@ class register extends StatelessWidget {
                   hintText: 'อายุ',
                 ),
                 onChanged: (value) => _age = value.trim(),
+              ),
+              new Padding(
+                padding: EdgeInsets.all(5),
+                child: new DropdownExample(),
               ),
               new Padding(
                   padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
@@ -107,6 +119,52 @@ class register extends StatelessWidget {
   }
 }
 
+class DropdownExample extends StatefulWidget {
+    @override
+    _DropdownExampleState createState() {
+      return _DropdownExampleState();
+    }
+  }
+  
+  class _DropdownExampleState extends State<DropdownExample> {
+    String _value;
+  
+    @override
+    Widget build(BuildContext context) {
+      return Align(
+        alignment: Alignment.centerRight,
+        child: DropdownButton<String>(
+          isDense: false,
+          isExpanded: true,
+          icon: Icon(Icons.arrow_drop_down),
+          items: [
+            DropdownMenuItem<String>(
+              child: Text('เพศชาย'),
+              value: 'Male',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('เพศหญิง'),
+              value: 'Female',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('เพศทางเลือก'),
+              value: 'LGBT',
+            ),
+          ],
+          onChanged: (String value) {
+            setState(() {
+              _value = value;
+              _gen = value;
+            });
+          },
+          hint: Text('เพศ'),
+          value: _value,
+        ),
+      );
+    }
+  }
+
+
 // User(_users);
 void sign_up(){
   print(_namef);
@@ -119,7 +177,7 @@ void sign_up(){
   _auth.createUserWithEmailAndPassword(email: _email,password: _pass).then((user){
     print("จัดไปวัยรุ่น ${user.user.uid}");
     var a = user.user.uid;
-    User new_user = new User(firstName: _namef,email: _email,userID: a);
+    User new_user = new User(firstName: _namef,email: _email,userID: a,age: _age,gender: _gen,lastName: _namel,password: _pass,province: "กรุงเทพมหานคร");
   
   databaseReference.collection("users").document(user.user.uid).setData(new_user.toJson()).then((onValue){
     print("Gooddddd");

@@ -38,7 +38,7 @@ class _BottomBarState extends State<BottomBar> {
     return Scaffold(
       appBar: NewAppBar(),
       body: _childred[_selectedIndex],
-            backgroundColor: Color.fromARGB(255, 70, 121, 136),
+            backgroundColor: Color.fromARGB(255, 28,94,113),
             bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
