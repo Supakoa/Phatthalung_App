@@ -8,7 +8,7 @@ class User {
   final String gender; 
   final String province; 
   final String email;
-  final String profilePictureURL;
+  final String password;
 
   User({
     this.userID,
@@ -18,7 +18,7 @@ class User {
     this.gender,  
     this.province,  
     this.email,
-    this.profilePictureURL,
+    this.password,
   });
 
   Map<String, Object> toJson() {
@@ -30,8 +30,8 @@ class User {
       'gender':gender,
       'province':province,
       'email': email == null ? '' : email,
-      'profilePictureURL': profilePictureURL,
-      'appIdentifier': 'flutter-onboarding'
+      'password':password,
+
     };
   }
 
@@ -44,7 +44,7 @@ class User {
       gender:doc['gender'],
       province:doc['province'],
       email: doc['email'],
-      profilePictureURL: doc['profilePictureURL'],
+      password:doc['password'],
     );
     return user;
   }
