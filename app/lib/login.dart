@@ -19,9 +19,7 @@ class _MyLoginState extends State<MyLogin> {
               style: TextStyle(color: Colors.white)),
           backgroundColor: Color.fromARGB(255, 70, 121, 136),
         ),
-        
         body: Container(
-          
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
             Color.fromARGB(255, 54, 145, 136),
@@ -32,17 +30,17 @@ class _MyLoginState extends State<MyLogin> {
             // mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                
                   height: 150,
                   width: 400,
-                  
                   color: Colors.amberAccent,
                   child: Text(
                     'เข้าสู่ระบบ',
                     style: TextStyle(fontSize: 30),
                     textAlign: TextAlign.center,
                   )),
-                  SizedBox(height: 20.0,),
+              SizedBox(
+                height: 20.0,
+              ),
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.person),
@@ -179,6 +177,28 @@ class register extends StatelessWidget {
                   hintText: 'เบอร์โทรศัพท์',
                 ),
               ),
+               new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.calendar_view_day),
+                  hintText: 'อายุ',
+                ),
+              ),
+              new Padding(
+                  padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
+                  child: SizedBox(
+                    height: 40.0,
+                    width: 300,
+                    child: new RaisedButton(
+                      elevation: 5.0,
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      color: Colors.blue,
+                      child: new Text('ลงทะเบียน',
+                          style: new TextStyle(
+                              fontSize: 20.0, color: Colors.white)),
+                     //onPressed: validateAndSubmit,
+                    ),
+                  ))
             ],
           )),
     );
