@@ -123,9 +123,12 @@ class _MyLoginState extends State<MyLogin> {
   }
 }
 
+String _name;
+String _password;
+String _errorMessage;
+
 class register extends StatelessWidget {
   const register({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,6 +160,7 @@ class register extends StatelessWidget {
                   icon: Icon(Icons.person),
                   hintText: 'ชื่อผู้ใช้',
                 ),
+                onSaved: (value) => _name = value.trim(),
               ),
               new TextFormField(
                 decoration: InputDecoration(
@@ -177,7 +181,7 @@ class register extends StatelessWidget {
                   hintText: 'เบอร์โทรศัพท์',
                 ),
               ),
-               new TextFormField(
+              new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.calendar_view_day),
                   hintText: 'อายุ',
@@ -196,11 +200,14 @@ class register extends StatelessWidget {
                       child: new Text('ลงทะเบียน',
                           style: new TextStyle(
                               fontSize: 20.0, color: Colors.white)),
-                     //onPressed: validateAndSubmit,
+                      onPressed: sign_up,
                     ),
                   ))
             ],
           )),
     );
   }
+}
+void sign_up(){
+  print(_name);
 }
