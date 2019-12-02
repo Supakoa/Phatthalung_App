@@ -19,7 +19,9 @@ class _MyLoginState extends State<MyLogin> {
               style: TextStyle(color: Colors.white)),
           backgroundColor: Color.fromARGB(255, 70, 121, 136),
         ),
+        
         body: Container(
+          
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
             Color.fromARGB(255, 54, 145, 136),
@@ -30,14 +32,17 @@ class _MyLoginState extends State<MyLogin> {
             // mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
+                
                   height: 150,
                   width: 400,
+                  
                   color: Colors.amberAccent,
                   child: Text(
                     'เข้าสู่ระบบ',
                     style: TextStyle(fontSize: 30),
                     textAlign: TextAlign.center,
                   )),
+                  SizedBox(height: 20.0,),
               new TextFormField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.person),
@@ -55,7 +60,6 @@ class _MyLoginState extends State<MyLogin> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        
                         RaisedButton(
                           child: Text(
                             'เข้าสู่ระบบ',
