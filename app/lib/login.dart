@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app/menubar/bottombar.dart';
-import 'package:app/models/User.dart';
+// import 'package:app/models/User.dart';
 import 'package:intl/intl.dart';
 import 'regis.dart';
 

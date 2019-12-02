@@ -1,6 +1,15 @@
+import 'dart:convert';
+
+import 'package:app/models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+final databaseReference = Firestore.instance;
+
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 String _namef,_namel;
 String _pass,_gen;
@@ -98,8 +107,7 @@ class register extends StatelessWidget {
   }
 }
 
-
-User(_users);
+// User(_users);
 void sign_up(){
   print(_namef);
   print(_pass);
@@ -107,4 +115,17 @@ void sign_up(){
   print(_age);
   print(_email);
   print(date);
+  
+  _auth.createUserWithEmailAndPassword(email: _email,password: _pass).then((user){
+    print("จัดไปวัยรุ่น ${user.user.uid}");
+    var a = user.user.uid;
+    User new_user = new User(firstName: _namef,email: _email,userID: a);
+  
+  databaseReference.collection("users").document(user.user.uid).setData(new_user.toJson()).then((onValue){
+    print("Gooddddd");
+    var firebaseUser = FirebaseAuth.instance.signInWithEmailAndPassword(email: _email,password: _pass).then((onValue){
+      //เข้าไปปปปปปปป
+    });
+  });
+  });
 }
