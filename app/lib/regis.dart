@@ -1,14 +1,11 @@
 import 'dart:convert';
 
 import 'package:app/models/user.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 final databaseReference = Firestore.instance;
-
-
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
 String _namef,_namel;
@@ -79,7 +76,7 @@ class register extends StatelessWidget {
               ),
               new TextFormField(
                 decoration: InputDecoration(
-                  icon: Icon(Icons.vpn_key),
+                  icon: Icon(Icons.phone_android),
                   hintText: 'เบอร์โทรศัพท์',
                 ),
                 onChanged: (value) => _tel = value.trim(),
@@ -168,12 +165,6 @@ class DropdownExample extends StatefulWidget {
 
 // User(_users);
 void sign_up(){
-  print(_namef);
-  print(_pass);
-  print(_tel);
-  print(_age);
-  print(_email);
-  print(date);
   
   _auth.createUserWithEmailAndPassword(email: _email,password: _pass).then((user){
     print("จัดไปวัยรุ่น ${user.user.uid}");
