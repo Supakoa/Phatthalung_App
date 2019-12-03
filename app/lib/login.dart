@@ -5,6 +5,11 @@ import 'package:app/menubar/bottombar.dart';
 import 'package:intl/intl.dart';
 import 'alert.dart';
 import 'regis.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final databaseReference = Firestore.instance;
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class MyLogin extends StatefulWidget {
   MyLogin({Key key}) : super(key: key);
@@ -15,6 +20,8 @@ class MyLogin extends StatefulWidget {
 
 class _MyLoginState extends State<MyLogin> {
   double _count = 0.0;
+  String _email;
+  String _pass;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,12 +56,9 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   child: new TextFormField(
                     autofocus: false,
-<<<<<<< HEAD
                     style: TextStyle(
                         color: Colors.grey, decoration: TextDecoration.none),
                     onChanged: (value) => _email = value.trim(),
-=======
->>>>>>> parent of 14d950b... Done !!!!
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'อีเมล',
@@ -63,7 +67,7 @@ class _MyLoginState extends State<MyLogin> {
                         Icons.person,
                         color: Colors.grey,
                       ),
-                      fillColor: Colors.white,
+                      fillColor: Colors.grey,
                     ),
                   ),
                 ),
@@ -71,7 +75,6 @@ class _MyLoginState extends State<MyLogin> {
               Padding(
                 padding: EdgeInsets.all(5),
                 child: Container(
-<<<<<<< HEAD
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     color: Colors.white,
@@ -80,10 +83,6 @@ class _MyLoginState extends State<MyLogin> {
                       onChanged: (value) => _pass = value.trim(),
                       style: TextStyle(
                           color: Colors.grey, decoration: TextDecoration.none),
-=======
-                  color: Colors.white,
-                  child: new TextFormField(
->>>>>>> parent of 14d950b... Done !!!!
                       obscureText: true,
                       decoration: InputDecoration(
                           fillColor: Colors.white,
@@ -121,7 +120,6 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   color: Color.fromARGB(255, 55, 144, 186),
                   onPressed: () {
-<<<<<<< HEAD
                     if(_email == null && _pass == null){
                       Navigator.push(context, MaterialPageRoute(builder: (_) => AlertBoxseccond()));
                     }else{
@@ -140,15 +138,6 @@ class _MyLoginState extends State<MyLogin> {
                           MaterialPageRoute(builder: (_) => AlertBox()));
                     });
                     }
-=======
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => AlertBox()));
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => BottomBar(),
-                    //   ),
-                    // );
->>>>>>> parent of 14d950b... Done !!!!
                   },
                 ),
               ),
@@ -194,7 +183,6 @@ class _MyLoginState extends State<MyLogin> {
                           ),
                           hoverColor: Colors.blue[800],
                           onPressed: () {
-                            
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -209,5 +197,3 @@ class _MyLoginState extends State<MyLogin> {
         ));
   }
 }
-
-
