@@ -51,7 +51,7 @@ class _MyLoginState extends State<MyLogin> {
                 padding: EdgeInsets.all(5),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     color: Colors.white,
                   ),
                   child: new TextFormField(

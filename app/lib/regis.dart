@@ -160,11 +160,13 @@ class _DropdownExampleState extends State<DropdownExample> {
         color: Colors.white,
       ),
       child: DropdownButton<String>(
+        style: TextStyle(color: Colors.grey,fontFamily: 'Kanit',fontWeight: FontWeight.bold,fontSize: 15),
         isDense: false,
         isExpanded: true,
         icon: Icon(
           Icons.arrow_drop_down,
           color: Colors.grey,
+          
         ),
         items: [
           DropdownMenuItem<String>(
