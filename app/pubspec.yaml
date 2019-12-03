@@ -73,7 +73,7 @@ flutter:
       fonts:
         - asset: assets/Kanit-Regular.ttf
   assets:
-    - assets/images
+    - assets/images/logo.png
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

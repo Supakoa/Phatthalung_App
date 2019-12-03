@@ -43,9 +43,14 @@ class _MyLoginState extends State<MyLogin> {
               Padding(
                 padding: EdgeInsets.all(5),
                 child: Container(
-                  color: Colors.white,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    color: Colors.white,
+                  ),
                   child: new TextFormField(
                     autofocus: false,
+                    style: TextStyle(
+                        color: Colors.grey, decoration: TextDecoration.none),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'อีเมล',
@@ -54,7 +59,7 @@ class _MyLoginState extends State<MyLogin> {
                         Icons.person,
                         color: Colors.grey,
                       ),
-                      fillColor: Colors.white,
+                      fillColor: Colors.grey,
                     ),
                   ),
                 ),
@@ -62,8 +67,13 @@ class _MyLoginState extends State<MyLogin> {
               Padding(
                 padding: EdgeInsets.all(5),
                 child: Container(
-                  color: Colors.white,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    color: Colors.white,
+                  ),
                   child: new TextFormField(
+                      style: TextStyle(
+                          color: Colors.grey, decoration: TextDecoration.none),
                       obscureText: true,
                       decoration: InputDecoration(
                           fillColor: Colors.white,
@@ -101,7 +111,8 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   color: Color.fromARGB(255, 55, 144, 186),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => AlertBox()));
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => AlertBox()));
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
@@ -151,8 +162,8 @@ class _MyLoginState extends State<MyLogin> {
                               decoration: TextDecoration.underline,
                             ),
                           ),
+                          hoverColor: Colors.blue[800],
                           onPressed: () {
-                            
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -167,5 +178,3 @@ class _MyLoginState extends State<MyLogin> {
         ));
   }
 }
-
-
