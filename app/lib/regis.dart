@@ -1,13 +1,11 @@
 import 'dart:convert';
 
 import 'package:app/models/user.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 final databaseReference = Firestore.instance;
-
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
 String _namef, _namel;
@@ -196,17 +194,8 @@ class _DropdownExampleState extends State<DropdownExample> {
 }
 
 // User(_users);
-void sign_up() {
-  print(_namef);
-  print(_pass);
-  print(_tel);
-  print(_age);
-  print(_email);
-  print(date);
-
-  _auth
-      .createUserWithEmailAndPassword(email: _email, password: _pass)
-      .then((user) {
+void sign_up(){
+  _auth.createUserWithEmailAndPassword(email: _email,password: _pass).then((user){
     print("จัดไปวัยรุ่น ${user.user.uid}");
     var a = user.user.uid;
     User new_user = new User(

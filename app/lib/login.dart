@@ -5,6 +5,11 @@ import 'package:app/menubar/bottombar.dart';
 import 'package:intl/intl.dart';
 import 'alert.dart';
 import 'regis.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final databaseReference = Firestore.instance;
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class MyLogin extends StatefulWidget {
   MyLogin({Key key}) : super(key: key);
@@ -15,6 +20,8 @@ class MyLogin extends StatefulWidget {
 
 class _MyLoginState extends State<MyLogin> {
   double _count = 0.0;
+  String _email;
+  String _pass;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +58,7 @@ class _MyLoginState extends State<MyLogin> {
                     autofocus: false,
                     style: TextStyle(
                         color: Colors.grey, decoration: TextDecoration.none),
+                    onChanged: (value) => _email = value.trim(),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'อีเมล',
@@ -72,6 +80,7 @@ class _MyLoginState extends State<MyLogin> {
                     color: Colors.white,
                   ),
                   child: new TextFormField(
+                      onChanged: (value) => _pass = value.trim(),
                       style: TextStyle(
                           color: Colors.grey, decoration: TextDecoration.none),
                       obscureText: true,
@@ -111,14 +120,20 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   color: Color.fromARGB(255, 55, 144, 186),
                   onPressed: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => AlertBox()));
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => BottomBar(),
-                    //   ),
-                    // );
+                    _auth
+                        .signInWithEmailAndPassword(
+                            email: _email, password: _pass)
+                        .then((onValue) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomBar(),
+                        ),
+                      );
+                    }).catchError((onError) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => AlertBox()));
+                    });
                   },
                 ),
               ),
