@@ -120,7 +120,10 @@ class _MyLoginState extends State<MyLogin> {
                   ),
                   color: Color.fromARGB(255, 55, 144, 186),
                   onPressed: () {
-                    _auth
+                    if(_email == null && _pass == null){
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => AlertBoxseccond()));
+                    }else{
+                      _auth
                         .signInWithEmailAndPassword(
                             email: _email, password: _pass)
                         .then((onValue) {
@@ -134,6 +137,7 @@ class _MyLoginState extends State<MyLogin> {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => AlertBox()));
                     });
+                    }
                   },
                 ),
               ),
