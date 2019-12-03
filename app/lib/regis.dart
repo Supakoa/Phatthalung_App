@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:app/models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final databaseReference = Firestore.instance;
+
+
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
 String _namef, _namel;
@@ -39,6 +41,7 @@ class register extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
+<<<<<<< HEAD
                 decoration: BoxDecoration(
                     // shape: BoxShape.circle,
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -50,6 +53,56 @@ class register extends StatelessWidget {
                     Icons.person_outline,
                     size: 50,
                   ),
+=======
+                height: 150,
+                child: Text(
+                  'สมัครสมาชิก',
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'ชื่อ',
+                ),
+                onChanged: (value) => _namef = value.trim(),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.short_text),
+                  hintText: 'นามสกุล',
+                ),
+                onChanged: (value) => _namel = value.trim(),
+              ),
+             
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'อีเมล',
+                ),
+                onChanged: (value) => _email = value.trim(),
+              ),
+               new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.vpn_key),
+                  hintText: 'รหัสผ่าน',
+                ),
+                onChanged: (value) => _pass = value.trim(),
+                scrollPadding: EdgeInsets.all(10),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.vpn_key),
+                  hintText: 'เบอร์โทรศัพท์',
+                ),
+                onChanged: (value) => _tel = value.trim(),
+              ),
+              new TextFormField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.calendar_view_day),
+                  hintText: 'อายุ',
+>>>>>>> parent of 14d950b... Done !!!!
                 ),
               ),
               Spacer(),
@@ -204,10 +257,22 @@ class _DropdownExampleState extends State<DropdownExample> {
 }
 
 // User(_users);
+<<<<<<< HEAD
 void sign_up() {
   _auth
       .createUserWithEmailAndPassword(email: _email, password: _pass)
       .then((user) {
+=======
+void sign_up(){
+  print(_namef);
+  print(_pass);
+  print(_tel);
+  print(_age);
+  print(_email);
+  print(date);
+  
+  _auth.createUserWithEmailAndPassword(email: _email,password: _pass).then((user){
+>>>>>>> parent of 14d950b... Done !!!!
     print("จัดไปวัยรุ่น ${user.user.uid}");
     var a = user.user.uid;
     User new_user = new User(
