@@ -166,14 +166,14 @@ class _MyLoginState extends State<MyLogin> {
                       children: <Widget>[
                         Text(
                           'ยังไม่มีบัญชีผู้ใช้ใช่ไหม?  ',
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 15),
                         ),
                         FlatButton(
                           child: Text(
                             'สมัครสมาชิก',
                             style: TextStyle(
                               color: Colors.blue,
-                              fontSize: 20,
+                              fontSize: 15,
                               decoration: TextDecoration.underline,
                             ),
                           ),

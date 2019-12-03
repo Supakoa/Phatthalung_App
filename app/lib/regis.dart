@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 final databaseReference = Firestore.instance;
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -23,7 +24,7 @@ class register extends StatelessWidget {
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("สมัครสมาชิก",
-            style: TextStyle(color: Colors.white, fontSize: 30)),
+            style: TextStyle(color: Colors.white, fontSize: 25)),
         centerTitle: true,
         backgroundColor: Color(0x0ff163c46),
       ),
@@ -33,18 +34,25 @@ class register extends StatelessWidget {
             Color.fromARGB(255, 21, 89, 108),
             Color.fromARGB(255, 21, 89, 108)
           ])),
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
+                decoration: BoxDecoration(
+                    // shape: BoxShape.circle,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    color: Color.fromARGB(255, 55, 121, 140)),
                 height: 100,
-                child: Text(
-                  'สมัครสมาชิก',
-                  style: TextStyle(fontSize: 25, color: Colors.white),
-                  textAlign: TextAlign.center,
+                width: 140,
+                child: Center(
+                  child: Icon(
+                    Icons.person_outline,
+                    size: 50,
+                  ),
                 ),
               ),
+              Spacer(),
               _fieldtext(
                   Icon(
                     Icons.person,
@@ -91,25 +99,21 @@ class register extends StatelessWidget {
                 padding: EdgeInsets.all(5),
                 child: new DropdownExample(),
               ),
-              new Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
-                  child: SizedBox(
-                    height: 40.0,
-                    width: 300,
-                    child: new RaisedButton(
-                      elevation: 5.0,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      color: Colors.blue,
-                      child: new Text('ลงทะเบียน',
-                          style: new TextStyle(
-                              fontSize: 20.0, color: Colors.white)),
+              Spacer(),
+              new SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: RaisedButton(
+                      child: Text(
+                        'ลงทะเบียน',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      color: Color.fromARGB(255, 55, 144, 186),
                       onPressed: () {
                         new DateFormat('dd-MM-YY').format(date);
                         sign_up();
-                      },
-                    ),
-                  ))
+                      })),
+              Spacer(),
             ],
           )),
     );
@@ -120,6 +124,7 @@ _fieldtext(Icon _icon, String _hint, String _newvalue) {
   return new Padding(
     padding: EdgeInsets.all(5),
     child: new Container(
+      padding: EdgeInsets.only(left: 3, right: 3),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
         color: Colors.white,
@@ -154,19 +159,22 @@ class _DropdownExampleState extends State<DropdownExample> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
-      padding: EdgeInsets.all(3),
+      padding: EdgeInsets.only(left: 4, right: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
         color: Colors.white,
       ),
       child: DropdownButton<String>(
-        style: TextStyle(color: Colors.grey,fontFamily: 'Kanit',fontWeight: FontWeight.bold,fontSize: 15),
+        style: TextStyle(
+            color: Colors.grey,
+            fontFamily: 'Kanit',
+            fontWeight: FontWeight.bold,
+            fontSize: 15),
         isDense: false,
         isExpanded: true,
         icon: Icon(
           Icons.arrow_drop_down,
           color: Colors.grey,
-          
         ),
         items: [
           DropdownMenuItem<String>(
@@ -196,8 +204,10 @@ class _DropdownExampleState extends State<DropdownExample> {
 }
 
 // User(_users);
-void sign_up(){
-  _auth.createUserWithEmailAndPassword(email: _email,password: _pass).then((user){
+void sign_up() {
+  _auth
+      .createUserWithEmailAndPassword(email: _email, password: _pass)
+      .then((user) {
     print("จัดไปวัยรุ่น ${user.user.uid}");
     var a = user.user.uid;
     User new_user = new User(
