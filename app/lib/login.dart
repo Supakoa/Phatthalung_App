@@ -26,11 +26,6 @@ class _MyLoginState extends State<MyLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomPadding: false,
-        // appBar: AppBar(
-        //   title: Text("Travel to Phathalung",
-        //       style: TextStyle(color: Colors.white)),
-        //   backgroundColor: Color.fromARGB(255, 70, 121, 136),
-        // ),
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
